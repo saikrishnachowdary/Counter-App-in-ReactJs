@@ -5,14 +5,27 @@ agent:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: Test
+  - name: 'Block #5'
     task:
       jobs:
-        - name: Test
+        - name: checkout
           commands:
             - checkout
-            - cache restore
+  - name: 'Block #3'
+    task:
+      jobs:
+        - name: install
+          commands:
             - npm install
-            - cache store
+  - name: 'Block #4'
+    task:
+      jobs:
+        - name: build
+          commands:
             - npm run build --if-present
+  - name: 'Block #5'
+    task:
+      jobs:
+        - name: test
+          commands:
             - npm test
