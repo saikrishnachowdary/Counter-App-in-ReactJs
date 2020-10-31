@@ -1,29 +1,29 @@
 version: v1.0
-name: Test MyApp
+name: 'Block #4'
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: 'Block #5'
+  - name: 'Block #1'
     task:
       jobs:
         - name: checkout
           commands:
             - checkout
-  - name: 'Block #3'
+  - name: 'Block #2'
     task:
       jobs:
         - name: install
           commands:
             - npm install
-  - name: 'Block #4'
+  - name: 'Block #3'
     task:
       jobs:
         - name: build
           commands:
             - npm run build --if-present
-  - name: 'Block #5'
+  - name: 'Block #4'
     task:
       jobs:
         - name: test
